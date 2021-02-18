@@ -1,0 +1,781 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NumPy 1.21.0 Release Notes &#8212; NumPy v1.21.dev0 Manual</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="NumPy 1.20.1 Release Notes" href="1.20.1-notes.html" />
+    <link rel="prev" title="Release Notes" href="../release.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+<link rel="stylesheet" href="../_static/numpy.css" type="text/css" />
+
+    <!-- PR #17220: This is added via javascript in versionwarning.js  -->
+    <!-- link rel="canonical" href="http://numpy.org/doc/stable/release/1.21.0-notes.html" / -->
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main">
+<div class="container-xl">
+
+    <a class="navbar-brand" href="../contents.html">
+    
+      <img src="../_static/numpylogo.svg" class="logo" alt="logo" />
+    
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div id="navbar-menu" class="col-lg-9 collapse navbar-collapse">
+      <ul id="navbar-main-elements" class="navbar-nav mr-auto">
+        
+        
+        <li class="nav-item active">
+            <a class="nav-link" href="../user/index.html">User Guide</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../reference/index.html">API reference</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="../dev/index.html">Development</a>
+        </li>
+        
+        
+      </ul>
+
+
+      
+
+      <ul class="navbar-nav">
+        
+          <li class="nav-item">
+            <a class="nav-link" href="https://github.com/numpy/numpy" target="_blank" rel="noopener">
+              <span><i class="fab fa-github-square"></i></span>
+            </a>
+          </li>
+        
+        
+          <li class="nav-item">
+            <a class="nav-link" href="https://twitter.com/numpy_team" target="_blank" rel="noopener">
+              <span><i class="fab fa-twitter-square"></i></span>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+</div>
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+          <div class="col-12 col-md-3 bd-sidebar"><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+
+    <div class="bd-toc-item active">
+    
+  
+    <ul class="nav bd-sidenav">
+        
+        
+          
+            
+                <li class="">
+                    <a href="../user/whatisnumpy.html">What is NumPy?</a>
+                </li>
+            
+          
+            
+                <li class="">
+                    <a href="https://numpy.org/install/">Installation</a>
+                </li>
+            
+          
+            
+                <li class="">
+                    <a href="../user/quickstart.html">NumPy quickstart</a>
+                </li>
+            
+          
+            
+                <li class="">
+                    <a href="../user/absolute_beginners.html">NumPy: the absolute basics for beginners</a>
+                </li>
+            
+          
+            
+                <li class="">
+                    <a href="../user/basics.html">NumPy fundamentals</a>
+                </li>
+            
+          
+            
+                <li class="">
+                    <a href="../user/misc.html">Miscellaneous</a>
+                </li>
+            
+          
+            
+                <li class="">
+                    <a href="../user/numpy-for-matlab-users.html">NumPy for MATLAB users</a>
+                </li>
+            
+          
+            
+                <li class="">
+                    <a href="../user/building.html">Building from source</a>
+                </li>
+            
+          
+            
+                <li class="">
+                    <a href="../user/c-info.html">Using NumPy C-API</a>
+                </li>
+            
+          
+            
+                <li class="">
+                    <a href="../user/tutorials_index.html">NumPy Tutorials</a>
+                </li>
+            
+          
+            
+                <li class="">
+                    <a href="../user/howtos_index.html">NumPy How Tos</a>
+                </li>
+            
+          
+            
+                <li class="">
+                    <a href="../user/explanations_index.html">Explanations</a>
+                </li>
+            
+          
+            
+                <li class="">
+                    <a href="../f2py/index.html">F2PY Users Guide and Reference Manual</a>
+                </li>
+            
+          
+            
+                <li class="">
+                    <a href="../glossary.html">Glossary</a>
+                </li>
+            
+          
+            
+                <li class="">
+                    <a href="../dev/underthehood.html">Under-the-hood Documentation for developers</a>
+                </li>
+            
+          
+            
+                <li class="">
+                    <a href="../docs/index.html">NumPy’s Documentation</a>
+                </li>
+            
+          
+            
+                <li class="">
+                    <a href="../bugs.html">Reporting bugs</a>
+                </li>
+            
+          
+            
+  
+                <li class="active">
+                    <a href="../release.html">Release Notes</a>
+                    <ul>
+                    
+                        <li class="active">
+                            <a href="">NumPy 1.21.0 Release Notes</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="1.20.1-notes.html">1.20.1</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="1.20.0-notes.html">1.20.0</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="1.19.5-notes.html">1.19.5</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="1.19.4-notes.html">1.19.4</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="1.19.3-notes.html">1.19.3</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="1.19.2-notes.html">1.19.2</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="1.19.1-notes.html">1.19.1</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="1.19.0-notes.html">1.19.0</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="1.18.4-notes.html">1.18.4</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="1.18.3-notes.html">1.18.3</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="1.18.2-notes.html">1.18.2</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="1.18.1-notes.html">1.18.1</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="1.18.0-notes.html">1.18.0</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="1.17.5-notes.html">1.17.5</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="1.17.4-notes.html">1.17.4</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="1.17.3-notes.html">1.17.3</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="1.17.2-notes.html">1.17.2</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="1.17.1-notes.html">1.17.1</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="1.17.0-notes.html">1.17.0</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="1.16.6-notes.html">1.16.6</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="1.16.5-notes.html">1.16.5</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="1.16.4-notes.html">1.16.4</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="1.16.3-notes.html">1.16.3</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="1.16.2-notes.html">1.16.2</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="1.16.1-notes.html">1.16.1</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="1.16.0-notes.html">1.16.0</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="1.15.4-notes.html">1.15.4</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="1.15.3-notes.html">1.15.3</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="1.15.2-notes.html">1.15.2</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="1.15.1-notes.html">1.15.1</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="1.15.0-notes.html">1.15.0</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="1.14.6-notes.html">1.14.6</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="1.14.5-notes.html">1.14.5</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="1.14.4-notes.html">1.14.4</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="1.14.3-notes.html">1.14.3</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="1.14.2-notes.html">1.14.2</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="1.14.1-notes.html">1.14.1</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="1.14.0-notes.html">1.14.0</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="1.13.3-notes.html">1.13.3</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="1.13.2-notes.html">1.13.2</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="1.13.1-notes.html">1.13.1</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="1.13.0-notes.html">1.13.0</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="1.12.1-notes.html">1.12.1</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="1.12.0-notes.html">1.12.0</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="1.11.3-notes.html">1.11.3</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="1.11.2-notes.html">1.11.2</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="1.11.1-notes.html">1.11.1</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="1.11.0-notes.html">1.11.0</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="1.10.4-notes.html">1.10.4</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="1.10.3-notes.html">1.10.3</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="1.10.2-notes.html">1.10.2</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="1.10.1-notes.html">1.10.1</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="1.10.0-notes.html">1.10.0</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="1.9.2-notes.html">1.9.2</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="1.9.1-notes.html">1.9.1</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="1.9.0-notes.html">1.9.0</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="1.8.2-notes.html">1.8.2</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="1.8.1-notes.html">1.8.1</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="1.8.0-notes.html">1.8.0</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="1.7.2-notes.html">1.7.2</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="1.7.1-notes.html">1.7.1</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="1.7.0-notes.html">1.7.0</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="1.6.2-notes.html">1.6.2</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="1.6.1-notes.html">1.6.1</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="1.6.0-notes.html">1.6.0</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="1.5.0-notes.html">1.5.0</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="1.4.0-notes.html">1.4.0</a>
+                        </li>
+                    
+                        <li class="">
+                            <a href="1.3.0-notes.html">1.3.0</a>
+                        </li>
+                    
+                    </ul>
+                </li>
+            
+          
+            
+                <li class="">
+                    <a href="../doc_conventions.html">Documentation conventions</a>
+                </li>
+            
+          
+            
+                <li class="">
+                    <a href="../license.html">NumPy license</a>
+                </li>
+            
+          
+        
+        
+        
+        
+        
+        
+      </ul>
+  
+  </nav>
+          </div>
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+              
+<div class="tocsection onthispage pt-5 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
+
+<nav id="bd-toc-nav">
+    <ul class="nav section-nav flex-column">
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#" class="nav-link">NumPy 1.21.0 Release Notes</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#future-changes" class="nav-link">Future Changes</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h4">
+            <a href="#promotion-of-strings-with-numbers-and-bools-is-deprecated" class="nav-link">Promotion of strings with numbers and bools is deprecated</a>
+        </li>
+    
+            </ul>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#expired-deprecations" class="nav-link">Expired deprecations</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#compatibility-notes" class="nav-link">Compatibility notes</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h4">
+            <a href="#validate-input-values-in-generator-uniform" class="nav-link">Validate input values in Generator.uniform</a>
+        </li>
+    
+            </ul>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#new-features" class="nav-link">New Features</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h4">
+            <a href="#added-a-mypy-plugin-for-handling-platform-specific-numpy-number-precisions" class="nav-link">Added a mypy plugin for handling platform-specific numpy.number precisions</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h4">
+            <a href="#let-the-mypy-plugin-manage-extended-precision-numpy-number-subclasses" class="nav-link">Let the mypy plugin manage extended-precision numpy.number subclasses</a>
+        </li>
+    
+            </ul>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#improvements" class="nav-link">Improvements</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h4">
+            <a href="#np-unique-now-returns-single-nan" class="nav-link">np.unique now returns single NaN</a>
+        </li>
+    
+            </ul>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#performance-improvements-and-changes" class="nav-link">Performance improvements and changes</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h4">
+            <a href="#improved-performance-in-integer-division-of-numpy-arrays" class="nav-link">Improved performance in integer division of NumPy arrays</a>
+        </li>
+    
+            </ul>
+        </li>
+    
+            </ul>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#id3" class="nav-link">NumPy 1.21.0 Release Notes</a>
+        </li>
+    
+    </ul>
+</nav>
+
+
+              
+          </div>
+          
+
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
+  <div class="section" id="numpy-1-21-0-release-notes">
+<h1>NumPy 1.21.0 Release Notes<a class="headerlink" href="#numpy-1-21-0-release-notes" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="future-changes">
+<h2>Future Changes<a class="headerlink" href="#future-changes" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="promotion-of-strings-with-numbers-and-bools-is-deprecated">
+<h3>Promotion of strings with numbers and bools is deprecated<a class="headerlink" href="#promotion-of-strings-with-numbers-and-bools-is-deprecated" title="Permalink to this headline">¶</a></h3>
+<p>Any promotion of numbers and strings is deprecated and will
+give a <code class="docutils literal notranslate"><span class="pre">FutureWarning</span></code> the main affected functionalities
+are:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="../reference/generated/numpy.promote_types.html#numpy.promote_types" title="numpy.promote_types"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.promote_types</span></code></a> and <a class="reference internal" href="../reference/generated/numpy.result_type.html#numpy.result_type" title="numpy.result_type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.result_type</span></code></a> which will raise
+an error in this case in the future.</p></li>
+<li><p><a class="reference internal" href="../reference/generated/numpy.concatenate.html#numpy.concatenate" title="numpy.concatenate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.concatenate</span></code></a> will raise an error when concatenating a string
+and numeric array. You can use <code class="docutils literal notranslate"><span class="pre">dtype=&quot;S&quot;</span></code> to explicitly request
+a string result.</p></li>
+<li><p><a class="reference internal" href="../reference/generated/numpy.array.html#numpy.array" title="numpy.array"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.array</span></code></a> and related functions will start returning <code class="docutils literal notranslate"><span class="pre">object</span></code>
+arrays because these functions use <code class="docutils literal notranslate"><span class="pre">object</span></code> as a fallback when
+no common dtype can be found. (In this case setting the
+<code class="docutils literal notranslate"><span class="pre">FutureWarning</span></code> to be raised will unfortunately lead to the new
+behaviour)</p></li>
+</ul>
+<p>This will mainly affect code such as:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">([</span><span class="s1">&#39;string&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>and:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(([</span><span class="s1">&#39;string&#39;</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+</pre></div>
+</div>
+<p>in both cases adding <code class="docutils literal notranslate"><span class="pre">dtype=&quot;U&quot;</span></code> or <code class="docutils literal notranslate"><span class="pre">dtype=&quot;S&quot;</span></code> will give the
+previous (string) result.</p>
+<p>Comparisons, universal functions, and casting are not affected by this.</p>
+<p>(<a class="reference external" href="https://github.com/numpy/numpy/pull/18116">gh-18116</a>)</p>
+</div>
+</div>
+<div class="section" id="expired-deprecations">
+<h2>Expired deprecations<a class="headerlink" href="#expired-deprecations" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">shape</span></code> argument <a class="reference internal" href="../reference/generated/numpy.unravel_index.html#numpy.unravel_index" title="numpy.unravel_index"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.unravel_index</span></code></a> cannot be passed
+as <code class="docutils literal notranslate"><span class="pre">dims</span></code> keyword argument anymore. (Was deprecated in NumPy 1.16.)</p>
+<p>(<a class="reference external" href="https://github.com/numpy/numpy/pull/17900">gh-17900</a>)</p>
+</li>
+</ul>
+</div>
+<div class="section" id="compatibility-notes">
+<h2>Compatibility notes<a class="headerlink" href="#compatibility-notes" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="validate-input-values-in-generator-uniform">
+<h3>Validate input values in <code class="docutils literal notranslate"><span class="pre">Generator.uniform</span></code><a class="headerlink" href="#validate-input-values-in-generator-uniform" title="Permalink to this headline">¶</a></h3>
+<p>Checked that <code class="docutils literal notranslate"><span class="pre">high</span> <span class="pre">-</span> <span class="pre">low</span> <span class="pre">&gt;=</span> <span class="pre">0</span></code> in <code class="docutils literal notranslate"><span class="pre">np.random.Generator.uniform</span></code>. Raises
+<code class="docutils literal notranslate"><span class="pre">ValueError</span></code> if <code class="docutils literal notranslate"><span class="pre">low</span> <span class="pre">&gt;</span> <span class="pre">high</span></code>. Previously out-of-order inputs were accepted
+and silently swapped, so that if <code class="docutils literal notranslate"><span class="pre">low</span> <span class="pre">&gt;</span> <span class="pre">high</span></code>, the value generated was
+<code class="docutils literal notranslate"><span class="pre">high</span> <span class="pre">+</span> <span class="pre">(low</span> <span class="pre">-</span> <span class="pre">high)</span> <span class="pre">*</span> <span class="pre">random()</span></code>.</p>
+<p>(<a class="reference external" href="https://github.com/numpy/numpy/pull/17921">gh-17921</a>)</p>
+</div>
+</div>
+<div class="section" id="new-features">
+<h2>New Features<a class="headerlink" href="#new-features" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="added-a-mypy-plugin-for-handling-platform-specific-numpy-number-precisions">
+<h3>Added a mypy plugin for handling platform-specific <a class="reference internal" href="../reference/arrays.scalars.html#numpy.number" title="numpy.number"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.number</span></code></a> precisions<a class="headerlink" href="#added-a-mypy-plugin-for-handling-platform-specific-numpy-number-precisions" title="Permalink to this headline">¶</a></h3>
+<p>A <a class="reference external" href="http://mypy-lang.org/">mypy</a> plugin is now available for automatically assigning the (platform-dependent)
+precisions of certain <a class="reference internal" href="../reference/arrays.scalars.html#numpy.number" title="numpy.number"><code class="xref py py-obj docutils literal notranslate"><span class="pre">number</span></code></a> subclasses, including the likes of
+<a class="reference internal" href="../reference/arrays.scalars.html#numpy.int_" title="numpy.int_"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int_</span></code></a>, <a class="reference internal" href="../reference/arrays.scalars.html#numpy.intp" title="numpy.intp"><code class="xref py py-obj docutils literal notranslate"><span class="pre">intp</span></code></a> and <a class="reference internal" href="../reference/arrays.scalars.html#numpy.longlong" title="numpy.longlong"><code class="xref py py-obj docutils literal notranslate"><span class="pre">longlong</span></code></a>. See the documentation on
+<a class="reference internal" href="../reference/arrays.scalars.html#arrays-scalars-built-in"><span class="std std-ref">scalar types</span></a> for a comprehensive overview
+of the affected classes.</p>
+<p>Note that while usage of the plugin is completely optional, without it the
+precision of above-mentioned classes will be inferred as <a class="reference external" href="https://docs.python.org/dev/library/typing.html#typing.Any" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Any</span></code></a>.</p>
+<p>To enable the plugin, one must add it to their mypy <a class="reference external" href="https://mypy.readthedocs.io/en/stable/config_file.html">configuration file</a>:</p>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[mypy]</span>
+<span class="na">plugins</span> <span class="o">=</span> <span class="s">numpy.typing.mypy_plugin</span>
+</pre></div>
+</div>
+<p>(<a class="reference external" href="https://github.com/numpy/numpy/pull/17843">gh-17843</a>)</p>
+</div>
+<div class="section" id="let-the-mypy-plugin-manage-extended-precision-numpy-number-subclasses">
+<h3>Let the mypy plugin manage extended-precision <a class="reference internal" href="../reference/arrays.scalars.html#numpy.number" title="numpy.number"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.number</span></code></a> subclasses<a class="headerlink" href="#let-the-mypy-plugin-manage-extended-precision-numpy-number-subclasses" title="Permalink to this headline">¶</a></h3>
+<p>The <a class="reference external" href="http://mypy-lang.org/">mypy</a> plugin, introduced in <a class="reference external" href="https://github.com/numpy/numpy/pull/17843">numpy/numpy#17843</a>, has been expanded:
+the plugin now removes annotations for platform-specific extended-precision
+types that are not available to the platform in question.
+For example, it will remove <a class="reference internal" href="../reference/arrays.scalars.html#numpy.float128" title="numpy.float128"><code class="xref py py-obj docutils literal notranslate"><span class="pre">float128</span></code></a> when not available.</p>
+<p>Without the plugin <em>all</em> extended-precision types will, as far as mypy is concerned,
+be available on all platforms.</p>
+<p>To enable the plugin, one must add it to their mypy <a class="reference external" href="https://mypy.readthedocs.io/en/stable/config_file.html">configuration file</a>:</p>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[mypy]</span>
+<span class="na">plugins</span> <span class="o">=</span> <span class="s">numpy.typing.mypy_plugin</span>
+</pre></div>
+</div>
+<p>(<a class="reference external" href="https://github.com/numpy/numpy/pull/18322">gh-18322</a>)</p>
+</div>
+</div>
+<div class="section" id="improvements">
+<h2>Improvements<a class="headerlink" href="#improvements" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="np-unique-now-returns-single-nan">
+<h3><code class="docutils literal notranslate"><span class="pre">np.unique</span></code> now returns single <code class="docutils literal notranslate"><span class="pre">NaN</span></code><a class="headerlink" href="#np-unique-now-returns-single-nan" title="Permalink to this headline">¶</a></h3>
+<p>When <code class="docutils literal notranslate"><span class="pre">np.unique</span></code> operated on an array with multiple <code class="docutils literal notranslate"><span class="pre">NaN</span></code> entries,
+its return included a <code class="docutils literal notranslate"><span class="pre">NaN</span></code> for each entry that was <code class="docutils literal notranslate"><span class="pre">NaN</span></code> in the original array.
+This is now improved such that the returned array contains just one <code class="docutils literal notranslate"><span class="pre">NaN</span></code> as the
+last element.</p>
+<p>Also for complex arrays all <code class="docutils literal notranslate"><span class="pre">NaN</span></code> values are considered equivalent
+(no matter whether the <code class="docutils literal notranslate"><span class="pre">NaN</span></code> is in the real or imaginary part). As the
+representant for the returned array the smallest one in the
+lexicographical order is chosen - see <code class="docutils literal notranslate"><span class="pre">np.sort</span></code> for how the lexicographical
+order is defined for complex arrays.</p>
+<p>(<a class="reference external" href="https://github.com/numpy/numpy/pull/18070">gh-18070</a>)</p>
+</div>
+</div>
+<div class="section" id="performance-improvements-and-changes">
+<h2>Performance improvements and changes<a class="headerlink" href="#performance-improvements-and-changes" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="improved-performance-in-integer-division-of-numpy-arrays">
+<h3>Improved performance in integer division of NumPy arrays<a class="headerlink" href="#improved-performance-in-integer-division-of-numpy-arrays" title="Permalink to this headline">¶</a></h3>
+<p>Integer division of NumPy arrays now uses <em class="xref py py-obj">libdivide</em>
+when the divisor is a constant. With the usage of libdivde and
+other minor optimizations, there is a large speedup.
+The <code class="docutils literal notranslate"><span class="pre">//</span></code> operator and <code class="docutils literal notranslate"><span class="pre">np.floor_divide</span></code> makes use
+of the new changes.</p>
+<p>(<a class="reference external" href="https://github.com/numpy/numpy/pull/17727">gh-17727</a>)</p>
+</div>
+</div>
+</div>
+<div class="section" id="id3">
+<h1>NumPy 1.21.0 Release Notes<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h1>
+</div>
+
+
+              </div>
+              
+              
+              <div class='prev-next-bottom'>
+                
+    <a class='left-prev' id="prev-link" href="../release.html" title="previous page">Release Notes</a>
+    <a class='right-next' id="next-link" href="1.20.1-notes.html" title="next page">NumPy 1.20.1 Release Notes</a>
+
+              </div>
+              
+          </main>
+          
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    <footer class="footer mt-5 mt-md-0">
+  <div class="container">
+    <p>
+          &copy; Copyright 2008-2021, The SciPy community.<br/>
+        Last updated on Feb 18, 2021.<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.5.0.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>
